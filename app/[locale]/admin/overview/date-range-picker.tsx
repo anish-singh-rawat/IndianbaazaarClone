@@ -64,8 +64,7 @@ export function CalendarDateRangePicker({
             defaultMonth={defaultDate?.from}
             selected={calendarDate}
             onSelect={setCalendarDate}
-            numberOfMonths={2}
-          />
+            numberOfMonths={2} className={undefined} classNames={undefined}          />
           <div className='flex gap-4 p-4 pt-0'>
             <PopoverClose asChild>
               <Button onClick={() => setDate(calendarDate)}>Apply</Button>

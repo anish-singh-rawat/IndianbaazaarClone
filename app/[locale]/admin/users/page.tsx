@@ -16,6 +16,7 @@ import {
 import { deleteUser, getAllUsers } from '@/lib/actions/user.actions'
 import { IUser } from '@/lib/db/models/user.model'
 import { formatId } from '@/lib/utils'
+import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Admin Users',
@@ -26,8 +27,7 @@ export default async function AdminUser(props: {
 }) {
   const searchParams = await props.searchParams
   const session = await auth()
-  if (session?.user.role !== 'Admin')
-    throw new Error('Admin permission required')
+  if (session?.user.role !== 'Admin') redirect('/');
   const page = Number(searchParams.page) || 1
   const users = await getAllUsers({
     page,

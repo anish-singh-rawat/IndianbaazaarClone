@@ -42,8 +42,8 @@ export default function LanguageForm({
   const defaultLanguage = watch('defaultLanguage')
 
   useEffect(() => {
-    const validCodes = availableLanguages.map((lang) => lang.code)
-    if (!validCodes.includes(defaultLanguage)) {
+    const validCodes = availableLanguages?.map((lang) => lang?.code)
+    if (!validCodes?.includes(defaultLanguage)) {
       setValue('defaultLanguage', '')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -131,10 +131,10 @@ export default function LanguageForm({
                   </SelectTrigger>
                   <SelectContent>
                     {availableLanguages
-                      .filter((x) => x.code)
-                      .map((lang, index) => (
-                        <SelectItem key={index} value={lang.code}>
-                          {lang.name} ({lang.code})
+                      ?.filter((x) => x?.code)
+                      ?.map((lang, index) => (
+                        <SelectItem key={index} value={lang?.code}>
+                          {lang?.name} ({lang?.code})
                         </SelectItem>
                       ))}
                   </SelectContent>

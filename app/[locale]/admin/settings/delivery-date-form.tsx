@@ -43,8 +43,8 @@ export default function DeliveryDateForm({
   const defaultDeliveryDate = watch('defaultDeliveryDate')
 
   useEffect(() => {
-    const validCodes = availableDeliveryDates.map((lang) => lang.name)
-    if (!validCodes.includes(defaultDeliveryDate)) {
+    const validCodes = availableDeliveryDates?.map((lang) => lang?.name)
+    if (!validCodes?.includes(defaultDeliveryDate)) {
       setValue('defaultDeliveryDate', '')
     }
   }, [JSON.stringify(availableDeliveryDates)])
@@ -176,10 +176,10 @@ export default function DeliveryDateForm({
                   </SelectTrigger>
                   <SelectContent>
                     {availableDeliveryDates
-                      .filter((x) => x.name)
-                      .map((lang, index) => (
-                        <SelectItem key={index} value={lang.name}>
-                          {lang.name} ({lang.name})
+                      ?.filter((x) => x?.name)
+                      ?.map((lang, index) => (
+                        <SelectItem key={index} value={lang?.name}>
+                          {lang?.name} ({lang?.name})
                         </SelectItem>
                       ))}
                   </SelectContent>

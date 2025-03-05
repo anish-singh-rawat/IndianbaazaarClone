@@ -42,8 +42,8 @@ export default function CurrencyForm({
   const defaultCurrency = watch('defaultCurrency')
 
   useEffect(() => {
-    const validCodes = availableCurrencies.map((lang) => lang.code)
-    if (!validCodes.includes(defaultCurrency)) {
+    const validCodes = availableCurrencies?.map((lang) => lang?.code)
+    if (!validCodes?.includes(defaultCurrency)) {
       setValue('defaultCurrency', '')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -168,10 +168,10 @@ export default function CurrencyForm({
                   </SelectTrigger>
                   <SelectContent>
                     {availableCurrencies
-                      .filter((x) => x.code)
-                      .map((lang, index) => (
-                        <SelectItem key={index} value={lang.code}>
-                          {lang.name} ({lang.code})
+                      ?.filter((x) => x?.code)
+                      ?.map((lang, index) => (
+                        <SelectItem key={index} value={lang?.code}>
+                          {lang?.name} ({lang?.code})
                         </SelectItem>
                       ))}
                   </SelectContent>

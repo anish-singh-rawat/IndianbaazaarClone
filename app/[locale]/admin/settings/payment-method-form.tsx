@@ -42,8 +42,8 @@ export default function PaymentMethodForm({
   const defaultPaymentMethod = watch('defaultPaymentMethod')
 
   useEffect(() => {
-    const validCodes = availablePaymentMethods.map((lang) => lang.name)
-    if (!validCodes.includes(defaultPaymentMethod)) {
+    const validCodes = availablePaymentMethods?.map((lang) => lang?.name)
+    if (!validCodes?.includes(defaultPaymentMethod)) {
       setValue('defaultPaymentMethod', '')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -133,10 +133,10 @@ export default function PaymentMethodForm({
                   </SelectTrigger>
                   <SelectContent>
                     {availablePaymentMethods
-                      .filter((x) => x.name)
-                      .map((lang, index) => (
-                        <SelectItem key={index} value={lang.name}>
-                          {lang.name} ({lang.name})
+                      ?.filter((x) => x?.name)
+                      ?.map((lang, index) => (
+                        <SelectItem key={index} value={lang?.name}>
+                          {lang?.name} ({lang?.name})
                         </SelectItem>
                       ))}
                   </SelectContent>

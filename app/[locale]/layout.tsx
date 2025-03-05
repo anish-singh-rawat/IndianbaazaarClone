@@ -8,6 +8,7 @@ import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
 import { getSetting } from '@/lib/actions/setting.actions'
 import { cookies } from 'next/headers'
+import ChatBot from '@/components/ChatBot/ChatBot'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -61,11 +62,17 @@ export default async function AppLayout({
       <body cz-shortcut-listen="true"
         className={`min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ClientProviders setting={{ ...setting, currency }}>
-            {children}
-          </ClientProviders>
-        </NextIntlClientProvider>
+        <div>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <ClientProviders setting={{ ...setting, currency }}>
+              {children}
+            </ClientProviders>
+          </NextIntlClientProvider>
+          <div className="fixed bottom-10 right-5">
+            <ChatBot />
+          </div>
+        </div>
+
       </body>
     </html>
   )

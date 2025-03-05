@@ -20,72 +20,6 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
-export const metadata = {
-  title: 'Indian Baazaar: ultimate online destination for fashion, beauty, and lifestyle products',
-
-  description:
-    'Discover top trends in fashion and lifestyle products at Indian Baazaar, also known as Indian Bazaar. Shop our exclusive collections of cosmetics, shoes, bags, toys, and clothing.',
-
-  keywords: [
-    'Indian Baazaar',
-    'Indian Bazaar',
-    'IndianBaazaar',
-    'IndianBazaar',
-    'Indianbazaar',
-    'indianBazaar',
-    'indianBazaar',
-    'Indian Baazaar',
-    'Indian Bazaar',
-    'Indian bazaar',
-    'indian Bazaar',
-    'indian Baazaar',
-    'e-commerce',
-    'Online shopping',
-    'internet shopping',
-    'web shopping',
-    'e-tailing',
-    'online retailing',
-    'web-based commerce',
-    'electronic commerce',
-    'digital commerce',
-    'fashion',
-    'beauty',
-    'lifestyle',
-    'cosmetics',
-    'shoes',
-    'bags',
-    'toys',
-    'clothing',
-    'online shopping',
-    'e-commerce',
-    'style',
-    'elegance',
-    'play',
-  ],
-  viewport: 'width=device-width, initial-scale=1.0',
-  openGraph: {
-    title: 'Indian Baazaar: ultimate online destination for fashion, beauty, and lifestyle products',
-    url: 'https://www.indianbaazaar.com/',
-    description:
-      'Indian Baazaar || Next Ecommerce is a sample Ecommerce website built with Next.js, Tailwind CSS, and MongoDB. Indian Baazaar, also known as Indian Bazaar, is your ultimate online destination for fashion, beauty, and lifestyle products. Explore a wide range of cosmetics, shoes, bags, toys, and clothing for women, men, and kids. (Indian Bazaar) | Style, Elegance, and Play - All in One Place!',
-    type: 'website',
-    images: [
-      {
-        url: 'https://www.indianbaazaar.com/icons/logo.svg',
-        secureUrl: 'https://www.indianbaazaar.com/icons/logo.svg',
-        width: 600,
-        height: 315,
-      },
-    ],
-  },
-  icons: {
-    icon: 'https://www.indianbaazaar.com/icons/logo.svg',
-    shortcut: 'https://www.indianbaazaar.com/icons/logo.svg',
-    apple: 'https://www.indianbaazaar.com/icons/logo.svg',
-  },
-};
-
-
 
 export async function generateMetadata() {
   const {
@@ -93,11 +27,68 @@ export async function generateMetadata() {
   } = await getSetting()
   return {
     title: {
-      template: `%s | ${name}`,
+      template: `Indian Baazaar %s | ${name}`,
       default: `${name}. ${slogan}`,
     },
-    description: description,
+    description: `Discover top trends in fashion and lifestyle products at Indian Baazaar, also known as Indian Bazaar. Shop our exclusive collections of cosmetics, shoes, bags, toys, and clothing. || ${description}`,
     metadataBase: new URL(url),
+    keywords: [
+      'Indian Baazaar',
+      'Indian Bazaar',
+      'IndianBaazaar',
+      'IndianBazaar',
+      'Indianbazaar',
+      'indianBazaar',
+      'indianBazaar',
+      'Indian Baazaar',
+      'Indian Bazaar',
+      'Indian bazaar',
+      'indian Bazaar',
+      'indian Baazaar',
+      'e-commerce',
+      'Online shopping',
+      'internet shopping',
+      'web shopping',
+      'e-tailing',
+      'online retailing',
+      'web-based commerce',
+      'electronic commerce',
+      'digital commerce',
+      'fashion',
+      'beauty',
+      'lifestyle',
+      'cosmetics',
+      'shoes',
+      'bags',
+      'toys',
+      'clothing',
+      'online shopping',
+      'e-commerce',
+      'style',
+      'elegance',
+      'play',
+    ],
+    viewport: 'width=device-width, initial-scale=1.0',
+    openGraph: {
+      title: 'Indian Baazaar: ultimate online destination for fashion, beauty, and lifestyle products',
+      url: 'https://www.indianbaazaar.com/',
+      description:
+        'Indian Baazaar || Next Ecommerce is a sample Ecommerce website built with Next.js, Tailwind CSS, and MongoDB. Indian Baazaar, also known as Indian Bazaar, is your ultimate online destination for fashion, beauty, and lifestyle products. Explore a wide range of cosmetics, shoes, bags, toys, and clothing for women, men, and kids. (Indian Bazaar) | Style, Elegance, and Play - All in One Place!',
+      type: 'website',
+      images: [
+        {
+          url: 'https://www.indianbaazaar.com/icons/logo.svg',
+          secureUrl: 'https://www.indianbaazaar.com/icons/logo.svg',
+          width: 600,
+          height: 315,
+        },
+      ],
+    },
+    icons: {
+      icon: 'https://www.indianbaazaar.com/icons/logo.svg',
+      shortcut: 'https://www.indianbaazaar.com/icons/logo.svg',
+      apple: 'https://www.indianbaazaar.com/icons/logo.svg',
+    },
   }
 }
 
@@ -113,7 +104,7 @@ export default async function AppLayout({
   const currency = currencyCookie ? currencyCookie.value : 'USD'
 
   const { locale } = await params
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale)) {
     notFound()
   }
   const messages = await getMessages()
